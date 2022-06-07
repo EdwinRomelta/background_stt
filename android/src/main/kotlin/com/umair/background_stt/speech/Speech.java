@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 
@@ -41,7 +40,6 @@ public class Speech {
     private Context mContext;
 
     private final Map<String, TextToSpeechCallback> mTtsCallbacks = new HashMap<>();
-    private Locale mLocale = Locale.getDefault();
     private long mStopListeningDelayInMs = 10000;
     private long mTransitionMinimumDelay = 1200;
     private long mLastActionTimestamp;
@@ -328,7 +326,7 @@ public class Speech {
         final Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
                 .putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1)
                 .putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, mGetPartialResults)
-                .putExtra(RecognizerIntent.EXTRA_LANGUAGE, mLocale.getLanguage())
+                .putExtra(RecognizerIntent.EXTRA_LANGUAGE, "in-ID")
                 .putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
 
         intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 1000);
